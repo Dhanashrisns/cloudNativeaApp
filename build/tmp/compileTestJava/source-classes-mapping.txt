@@ -1,0 +1,2 @@
+com/cloudnative/movie/MovieApplicationTests.java
+ com.cloudnative.movie.MovieApplicationTests

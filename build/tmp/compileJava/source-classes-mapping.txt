@@ -1,0 +1,46 @@
+com/cloudnative/movie/domain/RegistrationResponse.java
+ com.cloudnative.movie.domain.RegistrationResponse
+com/cloudnative/movie/domain/SubscribeRequest.java
+ com.cloudnative.movie.domain.SubscribeRequest
+com/cloudnative/movie/controller/TestController.java
+ com.cloudnative.movie.controller.TestController
+com/cloudnative/movie/domain/RegistrationRequest.java
+ com.cloudnative.movie.domain.RegistrationRequest
+com/cloudnative/movie/jpa/entity/User.java
+ com.cloudnative.movie.jpa.entity.User
+com/cloudnative/movie/jpa/repository/WishlistRepository.java
+ com.cloudnative.movie.jpa.repository.WishlistRepository
+com/cloudnative/movie/jpa/repository/UserRepository.java
+ com.cloudnative.movie.jpa.repository.UserRepository
+com/cloudnative/movie/domain/LoginRequest.java
+ com.cloudnative.movie.domain.LoginRequest
+com/cloudnative/movie/controller/FileController.java
+ com.cloudnative.movie.controller.FileController
+com/cloudnative/movie/controller/SubscriptionController.java
+ com.cloudnative.movie.controller.SubscriptionController
+com/cloudnative/movie/jpa/entity/MovieDetails.java
+ com.cloudnative.movie.jpa.entity.MovieDetails
+com/cloudnative/movie/service/DBFileStorageService.java
+ com.cloudnative.movie.service.DBFileStorageService
+com/cloudnative/movie/service/UserService.java
+ com.cloudnative.movie.service.UserService
+com/cloudnative/movie/domain/WishListRequest.java
+ com.cloudnative.movie.domain.WishListRequest
+com/cloudnative/movie/MovieApplication.java
+ com.cloudnative.movie.MovieApplication
+com/cloudnative/movie/domain/UploadFileResponse.java
+ com.cloudnative.movie.domain.UploadFileResponse
+com/cloudnative/movie/Constant/ApplicationConstants.java
+ com.cloudnative.movie.Constant.ApplicationConstants
+com/cloudnative/movie/service/SubscriptionService.java
+ com.cloudnative.movie.service.SubscriptionService
+com/cloudnative/movie/jpa/entity/WishList.java
+ com.cloudnative.movie.jpa.entity.WishList
+com/cloudnative/movie/service/WishlistService.java
+ com.cloudnative.movie.service.WishlistService
+com/cloudnative/movie/controller/RegistrationController.java
+ com.cloudnative.movie.controller.RegistrationController
+com/cloudnative/movie/controller/WishlistController.java
+ com.cloudnative.movie.controller.WishlistController
+com/cloudnative/movie/jpa/repository/MovieDetailRepository.java
+ com.cloudnative.movie.jpa.repository.MovieDetailRepository
