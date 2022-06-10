@@ -2,8 +2,6 @@ com/cloudnative/movie/domain/RegistrationResponse.java
  com.cloudnative.movie.domain.RegistrationResponse
 com/cloudnative/movie/domain/SubscribeRequest.java
  com.cloudnative.movie.domain.SubscribeRequest
-com/cloudnative/movie/controller/TestController.java
- com.cloudnative.movie.controller.TestController
 com/cloudnative/movie/domain/RegistrationRequest.java
  com.cloudnative.movie.domain.RegistrationRequest
 com/cloudnative/movie/jpa/entity/User.java
@@ -26,6 +24,8 @@ com/cloudnative/movie/service/UserService.java
  com.cloudnative.movie.service.UserService
 com/cloudnative/movie/domain/WishListRequest.java
  com.cloudnative.movie.domain.WishListRequest
+com/cloudnative/movie/controller/MovieDeatilsController.java
+ com.cloudnative.movie.controller.MovieDeatilsController
 com/cloudnative/movie/MovieApplication.java
  com.cloudnative.movie.MovieApplication
 com/cloudnative/movie/domain/UploadFileResponse.java

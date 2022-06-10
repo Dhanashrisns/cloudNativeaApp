@@ -19,13 +19,18 @@ public class SubscriptionController {
   @RequestMapping(value = "/subscribe", method = RequestMethod.POST,
       headers = "Accept=application/json", produces = "application/json")
          public ResponseEntity<String> subscribe(@RequestBody SubscribeRequest subscribeRequest) {
-    String message = subscriptionService.subscribe(subscribeRequest);
+    String message;
+    try {
+    message = subscriptionService.subscribe(subscribeRequest);
     MultiValueMap<String, String> headers = new HttpHeaders();
     headers.add("Access-Control-Allow-Origin","*");
     headers.add("Access-Control-Allow-Methods","GET, POST");
     headers.add("Access-Control-Allow-Headers","Content-Type,Accept,X-Requested-With");
     headers.add("X-XSS-Protection", "1; mode=block");
     headers.add("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  }catch (Exception e){
+    throw e;
+  }
     return  new ResponseEntity<String>(message, HttpStatus.OK);
   }
 }

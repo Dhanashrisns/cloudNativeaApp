@@ -27,12 +27,12 @@ logger.info("storeFile");
     try {
       Date date = new Date();
       try {
-        date = new SimpleDateFormat("dd/MM/yyyy").parse("22/04/2021");
+        date = new SimpleDateFormat("dd/MM/yyyy").parse("21/05/2022");
         logger.info("date"+date);
       }catch (Exception e){
         logger.info("exception-"+e.getStackTrace());
       }
-      dbFile = new MovieDetails("Love You Zindagi",date,"60%","Hindi", file.getBytes());
+      dbFile = new MovieDetails("Fantastic Beasts",date,"72%","English", file.getBytes());
        logger.info("dbFile"+dbFile);
 
     } catch (IOException ex) {

@@ -26,6 +26,7 @@ public class RegistrationController {
       headers = "Accept=application/json", produces = "application/json")
   public ResponseEntity<?> registerUser(@RequestBody RegistrationRequest registrationRequest) throws IOException {
     ResponseEntity<RegistrationResponse> responseEntity = null;
+    try{
     RegistrationResponse registrationResponse = userService.registerUser(registrationRequest);
     MultiValueMap<String, String> headers = new HttpHeaders();
     headers.add("Access-Control-Allow-Origin","*");
@@ -35,6 +36,9 @@ public class RegistrationController {
     headers.add("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
 
     responseEntity = new ResponseEntity<>(registrationResponse, headers, HttpStatus.OK);
+    }catch (Exception e){
+      throw e;
+    }
     return responseEntity;
   }
 
@@ -44,6 +48,7 @@ public class RegistrationController {
       headers = "Accept=application/json", produces = "application/json")
   public ResponseEntity<?> signIn(@RequestBody LoginRequest loginRequest) throws IOException {
     ResponseEntity<RegistrationResponse> responseEntity = null;
+    try{
     RegistrationResponse registrationResponse = userService.loginUser(loginRequest);
     MultiValueMap<String, String> headers = new HttpHeaders();
     headers.add("Access-Control-Allow-Origin","*");
@@ -53,6 +58,9 @@ public class RegistrationController {
     headers.add("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
 
     responseEntity = new ResponseEntity<>(registrationResponse, headers, HttpStatus.OK);
+    }catch (Exception e){
+      throw e;
+    }
     return responseEntity;
   }
 
@@ -61,6 +69,7 @@ public class RegistrationController {
       headers = "Accept=application/json", produces = "application/json")
   public ResponseEntity<?> signOut(@RequestBody LoginRequest loginRequest) throws IOException {
     ResponseEntity<RegistrationResponse> responseEntity = null;
+    try {
     RegistrationResponse registrationResponse = userService.loginUser(loginRequest);
     MultiValueMap<String, String> headers = new HttpHeaders();
     headers.add("Access-Control-Allow-Origin","*");
@@ -70,6 +79,9 @@ public class RegistrationController {
     headers.add("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
 
     responseEntity = new ResponseEntity<>(registrationResponse, headers, HttpStatus.OK);
+    }catch (Exception e){
+      throw e;
+    }
     return responseEntity;
   }
 

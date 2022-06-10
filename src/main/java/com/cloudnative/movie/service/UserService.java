@@ -20,17 +20,21 @@ public class UserService /*implements UserDetailsService*/ {
   public RegistrationResponse registerUser(RegistrationRequest registrationRequest){
      RegistrationResponse registrationResponse = new RegistrationResponse();
     User userDetails = new User();
-    userDetails.setName(registrationRequest.getName());
-    userDetails.setPassword(/*bCryptPasswordEncoder.encode(*/registrationRequest.getPassword());
-    userDetails.setEmail(registrationRequest.getEmail());
-    User userDtl = userRepository.findByEmail(registrationRequest.getEmail());
-    if(userDtl!=null) {
-      registrationResponse.setMessage("User is already registered");
-      registrationResponse.setUsername(userDtl.getName());
-    }else {
-      User userDetails1 = userRepository.saveAndFlush(userDetails);
-      registrationResponse.setMessage("User registered successfully");
-      registrationResponse.setUsername(userDetails1.getName());
+    try {
+      userDetails.setName(registrationRequest.getName());
+      userDetails.setPassword(/*bCryptPasswordEncoder.encode(*/registrationRequest.getPassword());
+      userDetails.setEmail(registrationRequest.getEmail());
+      User userDtl = userRepository.findByEmail(registrationRequest.getEmail());
+      if (userDtl != null) {
+        registrationResponse.setMessage("User is already registered");
+        registrationResponse.setUsername(userDtl.getName());
+      } else {
+        User userDetails1 = userRepository.saveAndFlush(userDetails);
+        registrationResponse.setMessage("User registered successfully");
+        registrationResponse.setUsername(userDetails1.getName());
+      }
+    }catch(Exception e){
+      throw e;
     }
        return registrationResponse;
      }
@@ -38,14 +42,19 @@ public class UserService /*implements UserDetailsService*/ {
 
 
   public RegistrationResponse loginUser(LoginRequest loginRequest){
+
     RegistrationResponse registrationResponse = new RegistrationResponse();
-    User userDtl = userRepository.findByEmail(loginRequest.getEmail());
-    if(userDtl!=null) {
-      registrationResponse.setMessage("User is successfully logged in");
-      registrationResponse.setUsername(userDtl.getName());
-    }else {
-      registrationResponse.setMessage("User is not registered. Please register first");
-      registrationResponse.setUsername(loginRequest.getEmail());
+    try {
+      User userDtl = userRepository.findByEmail(loginRequest.getEmail());
+      if (userDtl != null) {
+        registrationResponse.setMessage("User is successfully logged in");
+        registrationResponse.setUsername(userDtl.getName());
+      } else {
+        registrationResponse.setMessage("User is not registered. Please register first");
+        registrationResponse.setUsername(loginRequest.getEmail());
+      }
+    }catch (Exception e){
+      throw e;
     }
     return registrationResponse;
   }

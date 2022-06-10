@@ -19,16 +19,19 @@ public class SubscriptionService {
   UserRepository userRepository;
 
   public String subscribe(SubscribeRequest subscribeRequest){
-
-    User user = userRepository.findByEmail(subscribeRequest.getUserId());
-    user.setSubscribed(subscribeRequest.getSubscribed());
-    userRepository.saveAndFlush(user);
-    String body =  "Your"+subscribeRequest.getSubscribed() +" subscription has been activated";
-    SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-    simpleMailMessage.setTo("sanasdhanashri13@gmail.com");
-    simpleMailMessage.setSubject("OTT subscription");
-    simpleMailMessage.setText(body);
-    javaMailSender.send(simpleMailMessage);
+    String body = "Your" + subscribeRequest.getSubscribed() + " subscription has been activated";
+    try {
+      User user = userRepository.findByEmail(subscribeRequest.getUserId());
+      user.setSubscribed(subscribeRequest.getSubscribed());
+      userRepository.saveAndFlush(user);
+      SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+      simpleMailMessage.setTo("sanasdhanashri13@gmail.com");
+      simpleMailMessage.setSubject("OTT subscription");
+      simpleMailMessage.setText(body);
+      javaMailSender.send(simpleMailMessage);
+    }catch (Exception e){
+      throw e;
+    }
     return body;
   }
 }

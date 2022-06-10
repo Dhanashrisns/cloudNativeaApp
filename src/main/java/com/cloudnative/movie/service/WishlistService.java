@@ -5,6 +5,7 @@ import com.cloudnative.movie.jpa.entity.WishList;
 import com.cloudnative.movie.jpa.repository.WishlistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.tokens.ScalarToken;
 
 import java.util.List;
 
@@ -23,14 +24,17 @@ public class WishlistService {
   }
 
   public MovieDetails createMovieListResponse(WishList wishList) {
-     MovieDetails movieDetails = new MovieDetails();
-     movieDetails.setId(wishList.getMovieDetails().getId());
-     movieDetails.setReleaseDate(wishList.getMovieDetails().getReleaseDate());
-     movieDetails.setLanguage(wishList.getMovieDetails().getLanguage());
-     movieDetails.setRating(wishList.getMovieDetails().getRating());
-     movieDetails.setTitle(wishList.getMovieDetails().getTitle());
-     movieDetails.setData(wishList.getMovieDetails().getData());
-
+    MovieDetails movieDetails = new MovieDetails();
+    try {
+      movieDetails.setId(wishList.getMovieDetails().getId());
+      movieDetails.setReleaseDate(wishList.getMovieDetails().getReleaseDate());
+      movieDetails.setLanguage(wishList.getMovieDetails().getLanguage());
+      movieDetails.setRating(wishList.getMovieDetails().getRating());
+      movieDetails.setTitle(wishList.getMovieDetails().getTitle());
+      movieDetails.setData(wishList.getMovieDetails().getData());
+    }catch (Exception e){
+      throw e;
+    }
     return movieDetails;
   }
 
