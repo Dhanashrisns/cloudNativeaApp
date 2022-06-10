@@ -1,5 +1,5 @@
 FROM openjdk:11
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ADD build/libs/movie-0.0.1-SNAPSHOT.jar movie-0.0.1-SNAPSHOT.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "movie-0.0.1-SNAPSHOT.jar"]
+
